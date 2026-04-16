@@ -4,6 +4,17 @@
 
 @layer base {
   :root {
+    /* Транспортное расписание */
+    --bg: #f5f2ec;
+    --card-bg: #ffffff;
+    --card-border: #e8e2d8;
+    --title: #1a1612;
+    --muted-text: #9a9082;
+    --accent: #2d6a4f;
+    --badge-bg: #e8f5ee;
+    --time-bg: #f0ede8;
+    --past-bg: #f5f2ec;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
