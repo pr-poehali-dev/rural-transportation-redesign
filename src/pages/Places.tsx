@@ -118,6 +118,38 @@ export default function Places() {
         </p>
       </header>
 
+      {/* Карта */}
+      <div className="max-w-lg mx-auto px-6 mb-6">
+        <div
+          className="rounded-2xl overflow-hidden"
+          style={{ border: "1.5px solid var(--card-border)" }}
+        >
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=60.8320%2C56.5997&z=14&l=map&pt=60.8310%2C56.6010%2Cpm2bl1~60.8330%2C56.6005%2Cpm2bl2~60.8280%2C56.5970%2Cpm2bl3~60.8350%2C56.6030%2Cpm2bl4~60.8300%2C56.5990%2Cpm2bl5"
+            width="100%"
+            height="260"
+            frameBorder="0"
+            allowFullScreen
+            title="Карта мест"
+            style={{ display: "block" }}
+          />
+        </div>
+        {/* Легенда */}
+        <div className="flex flex-wrap gap-2 mt-3">
+          {places.map((p, i) => (
+            <div key={p.id} className="flex items-center gap-1.5">
+              <span
+                className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white shrink-0"
+                style={{ background: p.color }}
+              >
+                {i + 1}
+              </span>
+              <span className="text-xs" style={{ color: "var(--muted-text)" }}>{p.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Карточки */}
       <main className="max-w-lg mx-auto px-6 flex flex-col gap-4 pb-12">
         {places.map((place) => (
