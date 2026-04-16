@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const buses = [
@@ -71,6 +72,7 @@ function getNextDeparture(times: string[]) {
 }
 
 export default function Index() {
+  const navigate = useNavigate();
   const [direction, setDirection] = useState<"out" | "back">("out");
   const [activeTab, setActiveTab] = useState<"schedule" | "map">("schedule");
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -100,6 +102,22 @@ export default function Index() {
         <p className="text-sm mt-1" style={{ color: "var(--muted-text)" }}>
           3 маршрута · Свердловская область
         </p>
+
+        {/* Баннер перехода */}
+        <button
+          onClick={() => navigate("/places")}
+          className="mt-4 w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all"
+          style={{ background: "var(--badge-bg)", border: "1.5px solid var(--card-border)" }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="text-lg">📍</span>
+            <div className="text-left">
+              <p className="text-sm font-semibold" style={{ color: "var(--accent)" }}>Куда сходить</p>
+              <p className="text-xs" style={{ color: "var(--muted-text)" }}>Церковь, родник, реки, бор — 5 мест</p>
+            </div>
+          </div>
+          <Icon name="ChevronRight" size={16} />
+        </button>
       </header>
 
       {/* Вкладки */}
